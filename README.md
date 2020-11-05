@@ -13,17 +13,17 @@ My assumptions on this question are as follows:
 
 **Sub-questions**
 - Does it affect the parking rate the closer you can park it is?
+- How high or low are the parking rates?
 - What is 'close' to the city centre exactly?
 - What citties/towns will I be looking at?
 - Where in a city/town will I be looking?
 - How do I get the coordinates?
-- How high or low are the parking rates?
 
 # Sketches
 
-<img src="https://i.imgur.com/CNazY7E.png" height="400"/>
-<img src="https://i.imgur.com/7q2VVrb.png" height="400"/>
-<img src="https://i.imgur.com/tLQD6Nf.png" width="700"/>
+<img src="https://i.imgur.com/CNazY7E.png" height="300"/>
+<img src="https://i.imgur.com/7q2VVrb.png" height="300"/>
+<img src="https://i.imgur.com/UY49o7u.png" width="700"/>
 
 # Installation
 
