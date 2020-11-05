@@ -21,8 +21,8 @@ My assumptions on this question are as follows:
 
 # Sketches
 
-<img src="https://i.imgur.com/CNazY7E.png" height="300"/>
-<img src="https://i.imgur.com/7q2VVrb.png" height="300"/>
+<img src="https://i.imgur.com/CNazY7E.png" height="500"/>
+<img src="https://i.imgur.com/7q2VVrb.png" height="500"/>
 <img src="https://i.imgur.com/UY49o7u.png" width="700"/>
 
 # Installation
