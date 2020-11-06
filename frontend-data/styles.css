@@ -1,0 +1,19 @@
+body {
+  margin: 0px;
+  overflow: hidden;
+}
+
+path {
+ 	fill: lightblue; 
+  stroke: black;
+  stroke-opacity: .4;
+}
+
+path:hover {
+	fill: blue;
+}
+
+svg g {
+ 	width: 600%;
+  height: 600%
+}
