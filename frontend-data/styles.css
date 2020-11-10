@@ -4,16 +4,23 @@ body {
 }
 
 path {
- 	fill: lightblue; 
+ 	fill: #c0edcd; 
   stroke: black;
+  stroke-width: 0.5;
   stroke-opacity: .4;
+  transition: 0.3s;
 }
 
 path:hover {
-	fill: blue;
+	fill: #b00e37;
+  transition: 0.3s;
 }
 
 svg g {
  	width: 600%;
   height: 600%
+}
+
+svg g circle {
+	fill: red;
 }

@@ -1,75 +1,93 @@
-// Started code Laurens Aarnoudse
-import { select, json, geoPath, geoMercator, zoom } from 'd3'
-import { feature } from 'topojson'
+// Start code Laurens Aarnoudse
+import { select, json, geoPath, geoMercator, zoom } from 'd3';
+import { feature } from 'topojson';
+import { transformData } from '/transform.js'
+import { cleanData } from '/clean.js';
 
 // const endpointRate = 'https://opendata.rdw.nl/resource/534e-5vdg.json'
-const endpointGeoPoints = 'https://opendata.rdw.nl/resource/nsk3-v9n7.json'
-const colomnName = 'areageometryastext'
-
+const endpointGeoPoints = 'https://opendata.rdw.nl/resource/nsk3-v9n7.json?$limit=6100';
+const colomnName = 'areageometryastext';
+  
 getData(endpointGeoPoints)
-	.then(parkingDataResponse => {
-  	return parkingDataResponse.json()
-})
-.then(parkingData => {
- 		// console.log(parkingData)
-		const geoPointsArray = filterData(parkingData, colomnName)
-		// console.log(geoPointsArray)
-    
-    const svg = select('svg')
+  .then((parkingDataResponse) => {
+    return parkingDataResponse.json();
+  })
+  .then((parkingData) => {
+    const transformedArray = transformData(parkingData);
+  	const geoPointsArray = cleanData(transformedArray, colomnName);
+  	// console.log(transformedArray)
+  	console.log(geoPointsArray)
+  
+    drawMap(geoPointsArray);
+  })
 
-const projection = geoMercator().scale(5000).center([5.116667,52.17000])
-const pathGenerator = geoPath().projection(projection)
+// console.log(geoPointsArray)
 
-json('https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson').then(data => {
-	const gemeentes = feature(data, data.objects.gemeente_2020)
-  
-  svg.selectAll('path').data(gemeentes.features)
-  	.enter().append('path')
-  		.attr('d', pathGenerator)
-		.append('title')
-  		.text(d => `${d.properties.statnaam}, ID:${d.id}`)
-  
-  //source https://www.youtube.com/watch?v=hrJ64jpYb0A
-  const carParks = svg.selectAll('g')
-  	.data(geoPointsArray)
-  	// .join('g')
-  	.enter().append('g')
-  
-  const carParking = carParks.append('g')
-  	.attr('transform', ({ longitude, latitude }) => `translate(${projection([longitude, latitude]).join(",")})`)
-  
-  carParking.append('circle')
-  		.attr('r', '2');
-})
-})
-
-function getData(url){
-  return fetch(url)
+function getData(url) {
+  return fetch(url);
 }
 
-// With help of Laurens Aarnoudse
-function filterData(dataArray, key){
-  return dataArray.map(item => {
-    const geoPoints = item[key]
-    .replace(' ', '')
-    .replace(',', '')
-    .replace('))', '')
-    .replace('((', '')
-    .replace(')', '')
-    .replace('(', '')
-    .replace('GEOMETRYCOLLECTIONLINESTRING', '')
-    .replace('MULTIPOLYGON', '') 
-    .replace('POINT', '')
-    .replace('POLYGON', '')
-    .replace('(', '')
-    .replace(')', '')
-		.slice(0, 24)
-    const geoArray = geoPoints.split(' ')
-		return { longitude: geoArray[1], latitude: geoArray[0] }
-  	}
-  )
+function drawMap(geoData) {
+// Code by unknown developer
+// ------------------------------------------------------------------------------------
+  const svg = select('svg')
+
+  const projection = geoMercator().scale(6000).center([5.116667, 52.17]);
+  const pathGenerator = geoPath().projection(projection);
+
+  json('https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson').then(
+    (data) => {
+      const gemeentes = feature(data, data.objects.gemeente_2020);
+      const map = svg.append('g');
+      map
+        .selectAll('path')
+        .data(gemeentes.features)
+        .enter()
+        .append('path')
+        .attr('d', pathGenerator)
+        .append('title')
+        .text((d) => `${d.properties.statnaam}`)
+      	.call(d3.zoom().on("zoom", function () {
+       				svg.attr("transform", d3.event.transform)
+    			}))
+      	.append("g")
+      	// .call(d3.drag().on('drag', ondrag));
+// ------------------------------------------------------------------------------------
+      
+//sources: https://www.youtube.com/watch?v=MTR2T5VyxMc, https://www.youtube.com/watch?v=hrJ64jpYb0A
+//and help from Gijs Laarman    
+      // const dotPoints = svg.append("g")
+      map
+      	.selectAll("g")
+      	.data(geoData)
+      	.join("g")
+      	.append('circle')
+          .attr("cx", function(d){
+            const long = d.longitude
+            const lat = d.latitude
+            return projection([+long, +lat])[0]  
+          })
+          .attr("cy", function(d){
+            const long = d.longitude
+            const lat = d.latitude
+            return projection([+long, +lat])[1]
+          })
+      		.attr('r', '0.3px')
+    			// .call(d3.zoom().on("zoom", function () {
+    			// svg.attr("transform", d3.event.transform)
+    			// }))
+			})
+  
+ 			// console.log(svg) 
+ 			// svg.call(d3.zoom().scaleExtent([1 / 8, 24]).on('zoom', onzoom));
 }
 
-// function calcParkingRate(AmountFarePart, stepSizeFarePart) {
-// 	return AmountFarePart / stepSizeFarePart
+// function onzoom(){
+//   svg.attr('transform', d3.event.transfrom);
+// }
+
+// function ondrag(d){
+// 	d.x = d3.event.x;
+//   d.y = d3.event.y;
+//   d3.select(this).attr('cx', x(d)).attr('cy', x(d));
 // }
