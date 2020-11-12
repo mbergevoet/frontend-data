@@ -20,16 +20,18 @@ From _GEOMETRIE GEBIED_ I will use `String areageometryastext` to get the coordi
 From _TARIEFDEEL_ I will use `int amountfarepart` `int stepsizefarepart` to calculate the parking fares using a calculation Sam and Victor pointed out ("If AmountFarePart is 5,0 and stepSizeFarePart is 720 you pay 5EU for 720 minutes which means 5EU per 12 hours = 0,41eu per hour").
 
 **Empty entries** <br>
-For entries that don't contain any data I'm using a bit of code demonstrated by Laurens. Click [here](TODO) to see it.
+For entries that don't contain any data I'm using a bit of code demonstrated by Laurens. Click [here](https://github.com/mbergevoet/frontend-data/blob/eb43352cb0167306f632117261ed2f56c164ce2c/frontend-data/transform.js#L2) to see it.
 
 **Sketches** <br>
 <img src="https://i.imgur.com/CNazY7E.png" height="500"/>
 <img src="https://i.imgur.com/7q2VVrb.png" height="500"/>
 <img src="https://i.imgur.com/UY49o7u.png" width="700"/>
 <img src="https://imgur.com/BQzvk58.png" height="600"/> 
+<img src="https://i.imgur.com/TQpTnTe.png" height="500"/> 
 
 # Interesting functional patterns
-TODO
+- [funtional pattern one](https://github.com/mbergevoet/frontend-data/blob/master/frontend-data/clean.js)
+- [funtional pattern two](https://github.com/mbergevoet/frontend-data/blob/master/frontend-data/index.js)
 
 # Link to visualisation
 [Map of carparks in the Netherlands](https://mbergevoet.github.io/frontend-data/)

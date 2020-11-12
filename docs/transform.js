@@ -1,4 +1,5 @@
-// Code adapted from Laurens Aarnoudse
+//Code adapted from Laurens Aarnoudse
+//Checks if property exists and if not generates it and puts 1 in it
 export function transformData(data){
   const selectedData = data.map(item => {
 		return {

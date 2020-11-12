@@ -1,4 +1,5 @@
 // With help of Laurens Aarnoudse
+//Cleans the different formats into just one and separates the long and lat
 export function cleanData(dataArray, key) {
     return dataArray.map((item) => {
         const geoPoints = item[key]
