@@ -16,7 +16,6 @@ export function cleanData(dataArray, key) {
         .replace(')', '')
         .slice(0, 24);
       const geoArray = geoPoints.split(' ');
-      // console.log(geoArray)
       return { areamanagerid: item.areamanagerid, longitude: Number(geoArray[0]), latitude: Number(geoArray[1]) };
   });
 }

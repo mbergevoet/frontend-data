@@ -3,7 +3,7 @@ export function transformData(data){
   const selectedData = data.map(item => {
 		return {
     	areamanagerid: item.areamanagerid,
-    	areageometryastext: getPropIfExists(item, "areageometryastext")
+    	areageometryastext: getPropIfExists(item, 'areageometryastext')
     }
   })
   return selectedData
