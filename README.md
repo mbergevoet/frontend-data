@@ -12,17 +12,14 @@
 - How do I get the coordinates?
 
 **Assumptions** <br>
-My assumptions on this question are as follows:
-* I think in smaller cities it is possible to park closer to the city centre than in larger citties.
-* I suspect parking rates in bigger cities and townships will be higher. This might be because they want to minimize the amount of cars in the city.
-* And I think the closer to the city centre you park your care the higher the rates will be. This is probably done to give pedestrians, cyclists and tourists in more space in crowded or shopping area's. That way they want to keep cars out to make it more safe.
+I think in smaller cities it is possible to park closer to the city centre than in larger citties. I suspect parking rates in bigger cities and townships will be higher. This might be because they want to minimize the amount of cars in the city. And I assume the closer to the city centre you park your care the higher the rates will be. This is probably done to give pedestrians, cyclists and tourists in more space in crowded or shopping area's. That way they want to keep cars out to make it more safe.
 
 **Datasets & Variables** <br>
 The datasets I will be using to answer this question are [_Open Data Parkeren: GEOMETRIE GEBIED_](https://opendata.rdw.nl/Parkeren/Open-Data-Parkeren-GEOMETRIE-GEBIED/nsk3-v9n7) and [_Open Data Parkeren: TARIEFDEEL_](https://opendata.rdw.nl/Parkeren/Open-Data-Parkeren-TARIEFDEEL/534e-5vdg). I want to make two seperate visualisations with these datasets. One to show carparks close to city centres and one bar chart to see what car parks are the most/least expensive. Thanks to Stan I knew there are coordinates inside the _GEOMETRIE GEBIED_ dataset which I will use to plot the dots on a map of the Netherlands. <br>
 From _GEOMETRIE GEBIED_ I will use `String areageometryastext` to get the coordinates and transform them into separate properties. It now contains points or polygons with coordinates and all I have to do is getting one value out of it. <br>
 From _TARIEFDEEL_ I will use `int amountfarepart` `int stepsizefarepart` to calculate the parking fares using a calculation Sam and Victor pointed out ("If AmountFarePart is 5,0 and stepSizeFarePart is 720 you pay 5EU for 720 minutes which means 5EU per 12 hours = 0,41eu per hour").
 
-**Empty entries**
+**Empty entries** <br>
 For entries that don't contain any data I'm using a bit of code demonstrated by Laurens. Click [here](TODO) to see it.
 
 **Sketches** <br>
