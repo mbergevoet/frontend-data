@@ -24,6 +24,13 @@ The datasets I will be using to answer this question are _Open Data Parkeren: TA
 <img src="https://i.imgur.com/CNazY7E.png" height="500"/>
 <img src="https://i.imgur.com/7q2VVrb.png" height="500"/>
 <img src="https://i.imgur.com/UY49o7u.png" width="700"/>
+<img src="https://imgur.com/BQzvk58" height="500"/> 
+
+# Interesting functional patterns
+TODO
+
+# Link to visualisation
+TODO
 
 # Installation
 
