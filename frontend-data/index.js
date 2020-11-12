@@ -4,7 +4,6 @@ import { feature } from 'topojson';
 import { transformData } from '/transform.js'
 import { cleanData } from '/clean.js';
 
-// const endpointRate = 'https://opendata.rdw.nl/resource/534e-5vdg.json'
 const endpointGeoPoints = 'https://opendata.rdw.nl/resource/nsk3-v9n7.json?$limit=6100';
 const colomnName = 'areageometryastext';
   
@@ -21,43 +20,49 @@ getData(endpointGeoPoints)
     drawMap(geoPointsArray);
   })
 
-// console.log(geoPointsArray)
-
 function getData(url) {
   return fetch(url);
 }
 
 function drawMap(geoData) {
-// Code by unknown developer
+// Code adapted from sreen020
 // ------------------------------------------------------------------------------------
-  const svg = select('svg')
+  const svg = d3.select("svg")
+ 	let zoom = d3.zoom()
+   .scaleExtent([1, 8])
+   .on('zoom', () => {
+       svg.attr('transform', d3.event.transform)
+   });
+  const g = svg.append('g');
 
-  const projection = geoMercator().scale(6000).center([5.116667, 52.17]);
+  const projection = geoMercator().scale(5300).center([5.116667, 52.17]);
   const pathGenerator = geoPath().projection(projection);
 
   json('https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson').then(
     (data) => {
-      const gemeentes = feature(data, data.objects.gemeente_2020);
-      const map = svg.append('g');
-      map
+      const townships = feature(data, data.objects.gemeente_2020);
+      
+  			// const text = svg.append('text')
+  			// g.append('text')
+  			// .attr('y', 50)
+  			// .attr('x', 20)
+  			// .text('Parkeerplaatsen verdeelt over Nederland')
+      
+      console.log(g);
+      g
         .selectAll('path')
-        .data(gemeentes.features)
+        .data(townships.features)
         .enter()
         .append('path')
-        .attr('d', pathGenerator)
+        	.attr('d', pathGenerator)
         .append('title')
-        .text((d) => `${d.properties.statnaam}`)
-      	.call(d3.zoom().on("zoom", function () {
-       				svg.attr("transform", d3.event.transform)
-    			}))
-      	.append("g")
-      	// .call(d3.drag().on('drag', ondrag));
+        .text((d) => `${d.properties.statnaam}`);
+      	
 // ------------------------------------------------------------------------------------
       
 //sources: https://www.youtube.com/watch?v=MTR2T5VyxMc, https://www.youtube.com/watch?v=hrJ64jpYb0A
 //and help from Gijs Laarman    
-      // const dotPoints = svg.append("g")
-      map
+      g
       	.selectAll("g")
       	.data(geoData)
       	.join("g")
@@ -72,22 +77,20 @@ function drawMap(geoData) {
             const lat = d.latitude
             return projection([+long, +lat])[1]
           })
-      		.attr('r', '0.3px')
-    			// .call(d3.zoom().on("zoom", function () {
-    			// svg.attr("transform", d3.event.transform)
-    			// }))
+      		.attr('r', '1px')
 			})
+  		
+  		svg.call(zoom);
   
- 			// console.log(svg) 
  			// svg.call(d3.zoom().scaleExtent([1 / 8, 24]).on('zoom', onzoom));
+  
+			// function zoomed(event) {
+			// const { transform } = event;
+			// g.attr('transform', transform);
+			// g.attr('stroke-width', 1 / transform.k);
+			// }
+  
+      function onzoom(){
+      	g.attr('transform', d3.event.transform);
+    	}
 }
-
-// function onzoom(){
-//   svg.attr('transform', d3.event.transfrom);
-// }
-
-// function ondrag(d){
-// 	d.x = d3.event.x;
-//   d.y = d3.event.y;
-//   d3.select(this).attr('cx', x(d)).attr('cy', x(d));
-// }
