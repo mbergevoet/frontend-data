@@ -27,7 +27,10 @@ For entries that don't contain any data I'm using a bit of code demonstrated by 
 <img src="https://i.imgur.com/7q2VVrb.png" height="500"/>
 <img src="https://i.imgur.com/UY49o7u.png" width="700"/>
 <img src="https://imgur.com/BQzvk58.png" height="600"/> 
+
+**End result**
 <img src="https://i.imgur.com/TQpTnTe.png" height="500"/> 
+
 
 # Interesting functional patterns
 - [funtional pattern one](https://github.com/mbergevoet/frontend-data/blob/master/frontend-data/clean.js)
