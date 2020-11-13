@@ -48,7 +48,12 @@ git clone https://github.com/mbergevoet/frontend-data
 
 # Sources
 
-
+- Converting latitude and longitude to decimal values. (2009, July 16). Retrieved October 2020, from https://stackoverflow.com/questions/1140189/converting-latitude-and-longitude-to-decimal-values
+- How to check if a string contains a number in JavaScript? (2014, February 28). Retrieved October 2020, from https://stackoverflow.com/questions/22100243/how-to-check-if-a-string-contains-a-number-in-javascript/36077900
+- RGB to hex and hex to RGB. (2011, April 11). Retrieved October 2020, from https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+- Robb, J. (2020, February 27). Principles of Functional Programming. Retrieved 10 November 2020, from https://dev.to/jamesrweb/principles-of-functional-programming-4b7c
+- String.prototype.padStart(). (2020, April 6). Retrieved October 2020, from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+- String.prototype.split(). (2020, September 1). Retrieved November 2020, from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
 
 # License
 
