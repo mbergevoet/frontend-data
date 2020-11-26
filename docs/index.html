@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>New filter and transform</title>
+    <title>New code structure</title>
     <link rel="stylesheet" href="styles.css">
 <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>
@@ -9,10 +9,10 @@
     <script src="https://unpkg.com/topojson@3"></script>
   </head>
   <body>
-    <p>Parkeergebieden verdeeld over Nederland</p>
+    <h1>Hoe dicht bij stadscentra kun je parkeren?</h1>
     <ul>
       <li>
-      	<button class="reset"></button>
+        <p>Filter op stad:</p>
     	</li>
       <li>
       	<button class="changeOne" onclick=""></button>
@@ -23,11 +23,15 @@
       <li>
       	<button class="changeThree" onclick=""></button>
     	</li>
-<!--       <li>
-      	<p>Parkeergebieden verdeelt over Nederland</p>
-    	</li> -->
+      <li>
+      	<button class="changeFour" onclick=""></button>
+    	</li>
     </ul>
-    <svg width="1960" height="800"></svg>
+    <div>
+      <button class="reset"></button>
+    	<svg width="575" height="800"></svg>
+    </div>
+    <p class="bijschrift">Auto's krijgen tegenwoordig steeds minder ruimte in een druk centrum van een stad. Daarom kan het lastig zijn om een  parkeerplaats dicht bij te vinden of een parkeerplaats die niet al te veel kost per uur. Voor de mensen die daar naar op zoek zijn is deze kaar bedoelt. De stadscentra en parkeergelegenheden zijn weer gegeven op de kaart. De parkeergelegenheden met de kleine blauwe cirkels en de centra met een grotere rode cirkel. Deze kaart is gemaakt met behulp van een dataset van de RDW. <a href="https://opendata.rdw.nl/Parkeren/Open-Data-Parkeren-GEOMETRIE-GEBIED/nsk3-v9n7">Link naar de dataset</a>. Op de kaart zijn alle parkeergelegenheden in Nederland te zien die in de dataset zaten. Ook is er gebruik gemaakt van een andere dataset om de stadscentra te kunnen plotten.
     <script src="bundle.js"></script>
   </body>
 </html>
