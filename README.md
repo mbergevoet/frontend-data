@@ -28,8 +28,11 @@ For entries that don't contain any data I'm using a bit of code demonstrated by 
 <img src="https://i.imgur.com/UY49o7u.png" width="700"/>
 <img src="https://imgur.com/BQzvk58.png" height="600"/> 
 
-**End result**
+**Version 1.0** <br>
 <img src="https://i.imgur.com/TQpTnTe.png" height="500"/> 
+
+**Version 2.0** <br>
+<img src="https://i.imgur.com/OrPuvFp.png" height="600"/> 
 
 
 # Interesting functional patterns
@@ -41,7 +44,7 @@ For entries that don't contain any data I'm using a bit of code demonstrated by 
 
 # Installation
 
-**Clone the this repository** 
+**Clone this repository** 
 ```js
 git clone https://github.com/mbergevoet/frontend-data
 ```
