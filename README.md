@@ -32,12 +32,14 @@ For entries that don't contain any data I'm using a bit of code demonstrated by 
 <img src="https://i.imgur.com/TQpTnTe.png" height="500"/> 
 
 **Version 2.0** <br>
-<img src="https://i.imgur.com/OrPuvFp.png" height="600"/> 
-
+<img src="https://i.imgur.com/OrPuvFp.png" height="450"/> 
 
 # Interesting functional patterns
 - [funtional pattern one](https://github.com/mbergevoet/frontend-data/blob/master/frontend-data/clean.js)
 - [funtional pattern two](https://github.com/mbergevoet/frontend-data/blob/master/frontend-data/index.js)
+
+# Update pattern
+- [update pattern](https://github.com/mbergevoet/frontend-data/blob/72807814ef8b3c07a540d24d42ce3bfd93328929/frontend-data/index.js#L55)
 
 # Link to visualisation
 [Map of carparks in the Netherlands](https://mbergevoet.github.io/frontend-data/)
